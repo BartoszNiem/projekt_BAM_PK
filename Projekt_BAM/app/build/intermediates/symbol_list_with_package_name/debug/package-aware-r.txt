@@ -3139,7 +3139,9 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id buttonGoToRegistration
 id buttonPanel
+id buttonRegister
 id cache_measures
 id callMeasure
 id cancel_button
@@ -3212,6 +3214,15 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editTextAddress
+id editTextConfirmPassword
+id editTextEmail
+id editTextFirstName
+id editTextIdNumber
+id editTextLastName
+id editTextPassword
+id editTextPesel
+id editTextPhoneNumber
 id edit_query
 id elastic
 id embed
@@ -3650,6 +3661,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout activity_registration
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
