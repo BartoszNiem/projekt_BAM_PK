@@ -24,12 +24,16 @@
         "source": "com.example.projekt_bam.app-main-37:/mipmap-hdpi/ic_launcher.webp"
     },
     {
+        "merged": "com.example.projekt_bam.app-merged_res-35:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.projekt_bam.app-main-37:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
         "merged": "com.example.projekt_bam.app-merged_res-35:/layout_activity_registration.xml.flat",
         "source": "com.example.projekt_bam.app-main-37:/layout/activity_registration.xml"
     },
     {
-        "merged": "com.example.projekt_bam.app-merged_res-35:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.projekt_bam.app-main-37:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "com.example.projekt_bam.app-merged_res-35:/layout_activity_login.xml.flat",
+        "source": "com.example.projekt_bam.app-main-37:/layout/activity_login.xml"
     },
     {
         "merged": "com.example.projekt_bam.app-merged_res-35:/drawable_ic_launcher_background.xml.flat",
