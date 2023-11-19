@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.example.projekt_bam.app-mergeDebugResources-50:/layout/activity_login.xml",
+        "source": "com.example.projekt_bam.app-main-53:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.projekt_bam.app-mergeDebugResources-50:/layout/activity_main.xml",
+        "source": "com.example.projekt_bam.app-main-53:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.projekt_bam.app-mergeDebugResources-50:/layout/activity_home.xml",
+        "source": "com.example.projekt_bam.app-main-53:/layout/activity_home.xml"
+    },
+    {
+        "merged": "com.example.projekt_bam.app-mergeDebugResources-50:/layout/activity_registration.xml",
+        "source": "com.example.projekt_bam.app-main-53:/layout/activity_registration.xml"
+    }
+]

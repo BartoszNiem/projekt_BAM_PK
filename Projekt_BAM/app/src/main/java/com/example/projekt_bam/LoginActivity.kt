@@ -1,5 +1,6 @@
 package com.example.projekt_bam
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,10 +8,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.room.Room
-import com.example.projekt_bam.AppDatabase
-import com.example.projekt_bam.MainActivity
-import com.example.projekt_bam.R
-import com.example.projekt_bam.UserDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -21,7 +18,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
 
-   // private lateinit var userDao: UserDao // Przyjmuję, że masz zdefiniowaną klasę UserDao
     private lateinit var database: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,10 +50,11 @@ class LoginActivity : AppCompatActivity() {
             val user = database.userDao().getUserByEmailAndPassword(email, password)
 
             if (user != null) {
-                // Logowanie udane, otwórz nową aktywność lub wykonaj inne operacje
+                // Logowanie udane, zapisz zalogowanego użytkownika i otwórz nową aktywność HomeActivity
+                saveLoggedInUser(user)
                 runOnUiThread {
                     Toast.makeText(this@LoginActivity, "Logowanie udane", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
@@ -68,5 +65,13 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun saveLoggedInUser(user: UserEntity) {
+        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putLong("user_id", user.id)
+        editor.putString("email", user.email)
+        editor.apply()
     }
 }
