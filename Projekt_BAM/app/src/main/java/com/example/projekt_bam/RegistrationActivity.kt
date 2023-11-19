@@ -1,12 +1,20 @@
 package com.example.projekt_bam
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class RegistrationActivity : AppCompatActivity() {
+
+    private lateinit var database: AppDatabase
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -23,6 +31,8 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
+        database = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "user-database").build()
+
         // Inicjalizacja elementów interfejsu użytkownika
         emailEditText = findViewById(R.id.editTextEmail)
         passwordEditText = findViewById(R.id.editTextPassword)
@@ -38,6 +48,7 @@ class RegistrationActivity : AppCompatActivity() {
         // Obsługa kliknięcia przycisku rejestracji
         registerButton.setOnClickListener {
             registerUser()
+            showAllUsers()
         }
     }
 
@@ -67,8 +78,35 @@ class RegistrationActivity : AppCompatActivity() {
 
         // Tutaj dodaj logikę zapisu użytkownika do bazy danych lub serwera
 
+        val user = UserEntity(
+            email = email,
+            password = password,
+            firstName = firstName,
+            lastName = lastName,
+            pesel = pesel,
+            address = address,
+            idNumber = idNumber,
+            phoneNumber = phoneNumber
+        )
+
+        GlobalScope.launch(Dispatchers.IO) {
+            database.userDao().insertUser(user)
+        }
+
         showToast("Rejestracja udana")
         finish() // Zakończ aktywność rejestracji
+    }
+
+    private fun showAllUsers() {
+        GlobalScope.launch(Dispatchers.IO) {
+            val allUsers = database.userDao().getAllUsers()
+            withContext(Dispatchers.Main) {
+                Log.d("Users", "All users in the database:")
+                for (user in allUsers) {
+                    Log.d("Users", "User: $user")
+                }
+            }
+        }
     }
 
     private fun showToast(message: String) {
