@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.projekt_bam.app-mergeDebugResources-29:/values-gl/values-gl.xml",
+            "outputFile": "com.example.projekt_bam.app-mergeDebugResources-33:/values-gl/values-gl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Damian\\.gradle\\caches\\transforms-3\\63382362199d553975ec785d0a1c3d4b\\transformed\\material-1.10.0\\res\\values-gl\\values-gl.xml",

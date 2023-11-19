@@ -28,6 +28,12 @@
         android:testOnly="true"
         android:theme="@style/Theme.Projekt_BAM" >
         <activity
+            android:name="com.example.projekt_bam.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.projekt_bam.RegistrationActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.projekt_bam.MainActivity"
             android:exported="true" >
             <intent-filter>
@@ -36,6 +42,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

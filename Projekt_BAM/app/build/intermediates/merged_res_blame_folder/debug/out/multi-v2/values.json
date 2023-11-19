@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.projekt_bam.app-mergeDebugResources-29:/values/values.xml",
+            "outputFile": "com.example.projekt_bam.app-mergeDebugResources-33:/values/values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Damian\\.gradle\\caches\\transforms-3\\6eb3e6b436d74e587db8bc554db99fbc\\transformed\\activity-1.8.0\\res\\values\\values.xml",
@@ -135,9 +135,9 @@
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",
-                        "startOffsets": "17",
+                        "startOffsets": "16",
                         "endColumns": "48",
-                        "endOffsets": "61"
+                        "endOffsets": "60"
                     },
                     "to": {
                         "startLines": "1965",
