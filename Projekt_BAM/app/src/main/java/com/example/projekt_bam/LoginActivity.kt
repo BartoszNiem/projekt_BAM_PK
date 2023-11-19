@@ -1,6 +1,8 @@
 package com.example.projekt_bam
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -10,7 +12,6 @@ import androidx.room.Room
 import com.example.projekt_bam.AppDatabase
 import com.example.projekt_bam.MainActivity
 import com.example.projekt_bam.R
-import com.example.projekt_bam.UserDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -21,8 +22,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
 
-   // private lateinit var userDao: UserDao // Przyjmuję, że masz zdefiniowaną klasę UserDao
     private lateinit var database: AppDatabase
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +35,10 @@ class LoginActivity : AppCompatActivity() {
         loginButton = findViewById(R.id.buttonLogin)
 
         // Inicjalizacja obiektu UserDao (dostosuj do swojej implementacji)
-         database = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "user-database").build()
+        database = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "user-database").build()
+
+        // Inicjalizacja SharedPreferences
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
         // Obsługa kliknięcia przycisku logowania
         loginButton.setOnClickListener {
@@ -54,10 +58,15 @@ class LoginActivity : AppCompatActivity() {
             val user = database.userDao().getUserByEmailAndPassword(email, password)
 
             if (user != null) {
+                // Zapisz informacje o zalogowanym użytkowniku w SharedPreferences
+                sharedPreferences.edit().putBoolean("is_logged_in", true).apply()
+                sharedPreferences.edit().putString("logged_in_email", user.email).apply()
+
                 // Logowanie udane, otwórz nową aktywność lub wykonaj inne operacje
                 runOnUiThread {
                     Toast.makeText(this@LoginActivity, "Logowanie udane", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
+
                     startActivity(intent)
                     finish()
                 }

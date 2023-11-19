@@ -1,9 +1,11 @@
 package com.example.projekt_bam
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         buttonGoToRegistration.setOnClickListener {
             val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)
+        }
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("is_logged_in", false)
+        if (isLoggedIn){
+            Toast.makeText(this@MainActivity, sharedPreferences.getString("logged_in_email", ""), Toast.LENGTH_SHORT).show()
         }
     }
 }
