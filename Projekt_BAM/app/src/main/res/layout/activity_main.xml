@@ -6,12 +6,20 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/buttonGoToLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Przejdź do logowania" />
+
     <!-- Przycisk, który przeniesie do RegistrationActivity -->
     <Button
         android:id="@+id/buttonGoToRegistration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Przejdź do rejestracji" />
+        android:text="Przejdź do rejestracji"
+        android:layout_below="@id/buttonGoToLogin"/>
 
 </RelativeLayout>

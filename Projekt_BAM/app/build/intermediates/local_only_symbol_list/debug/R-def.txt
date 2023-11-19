@@ -4,7 +4,9 @@ color black
 color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+id buttonGoToLogin
 id buttonGoToRegistration
+id buttonLogin
 id buttonRegister
 id editTextAddress
 id editTextConfirmPassword
@@ -15,6 +17,7 @@ id editTextLastName
 id editTextPassword
 id editTextPesel
 id editTextPhoneNumber
+layout activity_login
 layout activity_main
 layout activity_registration
 mipmap ic_launcher

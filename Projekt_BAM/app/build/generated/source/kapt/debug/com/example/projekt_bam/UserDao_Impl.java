@@ -252,6 +252,97 @@ public final class UserDao_Impl implements UserDao {
     }
   }
 
+  @Override
+  public UserEntity getUserByEmailAndPassword(final String email, final String password) {
+    final String _sql = "SELECT * FROM users where email = ? and password = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 2);
+    int _argIndex = 1;
+    if (email == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, email);
+    }
+    _argIndex = 2;
+    if (password == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, password);
+    }
+    __db.assertNotSuspendingTransaction();
+    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+    try {
+      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+      final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
+      final int _cursorIndexOfPassword = CursorUtil.getColumnIndexOrThrow(_cursor, "password");
+      final int _cursorIndexOfFirstName = CursorUtil.getColumnIndexOrThrow(_cursor, "first_name");
+      final int _cursorIndexOfLastName = CursorUtil.getColumnIndexOrThrow(_cursor, "last_name");
+      final int _cursorIndexOfPesel = CursorUtil.getColumnIndexOrThrow(_cursor, "pesel");
+      final int _cursorIndexOfAddress = CursorUtil.getColumnIndexOrThrow(_cursor, "address");
+      final int _cursorIndexOfIdNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "id_number");
+      final int _cursorIndexOfPhoneNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "phone_number");
+      final UserEntity _result;
+      if(_cursor.moveToFirst()) {
+        final long _tmpId;
+        _tmpId = _cursor.getLong(_cursorIndexOfId);
+        final String _tmpEmail;
+        if (_cursor.isNull(_cursorIndexOfEmail)) {
+          _tmpEmail = null;
+        } else {
+          _tmpEmail = _cursor.getString(_cursorIndexOfEmail);
+        }
+        final String _tmpPassword;
+        if (_cursor.isNull(_cursorIndexOfPassword)) {
+          _tmpPassword = null;
+        } else {
+          _tmpPassword = _cursor.getString(_cursorIndexOfPassword);
+        }
+        final String _tmpFirstName;
+        if (_cursor.isNull(_cursorIndexOfFirstName)) {
+          _tmpFirstName = null;
+        } else {
+          _tmpFirstName = _cursor.getString(_cursorIndexOfFirstName);
+        }
+        final String _tmpLastName;
+        if (_cursor.isNull(_cursorIndexOfLastName)) {
+          _tmpLastName = null;
+        } else {
+          _tmpLastName = _cursor.getString(_cursorIndexOfLastName);
+        }
+        final String _tmpPesel;
+        if (_cursor.isNull(_cursorIndexOfPesel)) {
+          _tmpPesel = null;
+        } else {
+          _tmpPesel = _cursor.getString(_cursorIndexOfPesel);
+        }
+        final String _tmpAddress;
+        if (_cursor.isNull(_cursorIndexOfAddress)) {
+          _tmpAddress = null;
+        } else {
+          _tmpAddress = _cursor.getString(_cursorIndexOfAddress);
+        }
+        final String _tmpIdNumber;
+        if (_cursor.isNull(_cursorIndexOfIdNumber)) {
+          _tmpIdNumber = null;
+        } else {
+          _tmpIdNumber = _cursor.getString(_cursorIndexOfIdNumber);
+        }
+        final String _tmpPhoneNumber;
+        if (_cursor.isNull(_cursorIndexOfPhoneNumber)) {
+          _tmpPhoneNumber = null;
+        } else {
+          _tmpPhoneNumber = _cursor.getString(_cursorIndexOfPhoneNumber);
+        }
+        _result = new UserEntity(_tmpId,_tmpEmail,_tmpPassword,_tmpFirstName,_tmpLastName,_tmpPesel,_tmpAddress,_tmpIdNumber,_tmpPhoneNumber);
+      } else {
+        _result = null;
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
+
   public static List<Class<?>> getRequiredConverters() {
     return Collections.emptyList();
   }
