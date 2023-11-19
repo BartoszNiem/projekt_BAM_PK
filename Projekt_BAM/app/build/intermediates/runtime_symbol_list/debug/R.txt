@@ -3213,15 +3213,11 @@ int id easeInOut 0x7f0800a9
 int id easeOut 0x7f0800aa
 int id east 0x7f0800ab
 int id edge 0x7f0800ac
-int id editTextAddress 0x7f0800ad
 int id editTextConfirmPassword 0x7f0800ae
 int id editTextEmail 0x7f0800af
 int id editTextFirstName 0x7f0800b0
-int id editTextIdNumber 0x7f0800b1
 int id editTextLastName 0x7f0800b2
 int id editTextPassword 0x7f0800b3
-int id editTextPesel 0x7f0800b4
-int id editTextPhoneNumber 0x7f0800b5
 int id edit_query 0x7f0800b6
 int id elastic 0x7f0800b7
 int id embed 0x7f0800b8

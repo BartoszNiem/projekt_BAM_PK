@@ -3214,15 +3214,11 @@ id easeInOut
 id easeOut
 id east
 id edge
-id editTextAddress
 id editTextConfirmPassword
 id editTextEmail
 id editTextFirstName
-id editTextIdNumber
 id editTextLastName
 id editTextPassword
-id editTextPesel
-id editTextPhoneNumber
 id edit_query
 id elastic
 id embed

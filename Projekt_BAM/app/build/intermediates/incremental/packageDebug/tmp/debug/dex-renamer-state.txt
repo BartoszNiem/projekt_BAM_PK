@@ -1,4 +1,4 @@
-#Sun Nov 19 17:26:49 CET 2023
+#Sun Nov 19 18:19:33 CET 2023
 base.0=C\:\\Users\\Damian\\Desktop\\BAM-projekt\\projekt_BAM_PK\\Projekt_BAM\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\Damian\\Desktop\\BAM-projekt\\projekt_BAM_PK\\Projekt_BAM\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\Damian\\Desktop\\BAM-projekt\\projekt_BAM_PK\\Projekt_BAM\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex

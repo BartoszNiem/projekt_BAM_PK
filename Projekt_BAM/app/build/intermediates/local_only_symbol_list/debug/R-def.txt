@@ -6,15 +6,11 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 id buttonGoToRegistration
 id buttonRegister
-id editTextAddress
 id editTextConfirmPassword
 id editTextEmail
 id editTextFirstName
-id editTextIdNumber
 id editTextLastName
 id editTextPassword
-id editTextPesel
-id editTextPhoneNumber
 layout activity_main
 layout activity_registration
 mipmap ic_launcher

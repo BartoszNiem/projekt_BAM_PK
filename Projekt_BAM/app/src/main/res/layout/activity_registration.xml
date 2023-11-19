@@ -50,47 +50,11 @@
         android:hint="Nazwisko"
         android:inputType="text" />
 
-    <EditText
-        android:id="@+id/editTextPesel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextLastName"
-        android:layout_marginTop="16dp"
-        android:hint="PESEL"
-        android:inputType="number" />
-
-    <EditText
-        android:id="@+id/editTextAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextPesel"
-        android:layout_marginTop="16dp"
-        android:hint="Adres zamieszkania"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/editTextIdNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextAddress"
-        android:layout_marginTop="16dp"
-        android:hint="Numer seryjny dowodu osobistego"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/editTextPhoneNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextIdNumber"
-        android:layout_marginTop="16dp"
-        android:hint="Numer telefonu"
-        android:inputType="phone" />
-
     <Button
         android:id="@+id/buttonRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextPhoneNumber"
+        android:layout_below="@id/editTextLastName"
         android:layout_marginTop="16dp"
         android:text="Zarejestruj" />
 

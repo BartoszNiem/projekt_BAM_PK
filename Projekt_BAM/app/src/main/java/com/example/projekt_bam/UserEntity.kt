@@ -17,11 +17,11 @@ data class UserEntity(
     @ColumnInfo(name = "last_name")
     val lastName: String,
     @ColumnInfo(name = "pesel")
-    val pesel: String,
+    val pesel: String = "",
     @ColumnInfo(name = "address")
-    val address: String,
+    val address: String = "",
     @ColumnInfo(name = "id_number")
-    val idNumber: String,
+    val idNumber: String = "",
     @ColumnInfo(name = "phone_number")
-    val phoneNumber: String
+    val phoneNumber: String = ""
 )
