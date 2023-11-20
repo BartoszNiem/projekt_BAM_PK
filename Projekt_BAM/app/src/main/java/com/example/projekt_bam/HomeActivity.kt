@@ -1,10 +1,15 @@
 package com.example.projekt_bam
 
 import android.content.Context
-import com.example.projekt_bam.LoginActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HomeActivity : AppCompatActivity() {
 
@@ -14,22 +19,29 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        database = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "user-database").build()
+
         val welcomeMessageTextView: TextView = findViewById(R.id.textViewWelcomeMessage)
 
-        val loggedInUser = getLoggedInUser()
+        GlobalScope.launch(Dispatchers.Main) {
+            val loggedInUser = getLoggedInUser()
 
-        welcomeMessageTextView.text = "Witaj, ${loggedInUser?.email}!"
-    }
-
-    fun getLoggedInUser(): UserEntity? {
-        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val userId = sharedPreferences.getLong("user_id", -1)
-
-        return if (userId.toInt() != -1) {
-            val userDao = database.userDao()
-            userDao.getUserById(userId)
-        } else {
-            null
+            welcomeMessageTextView.text = "Witaj, ${loggedInUser?.email}!"
         }
     }
+
+    suspend fun getLoggedInUser(): UserEntity? {
+        return withContext(Dispatchers.IO) {
+            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            val email = sharedPreferences.getString("logged_in_email", "")
+
+            return@withContext if (email != "") {
+                val userDao = database.userDao()
+                userDao.getUserByEmail(email.toString())
+            } else {
+                null
+            }
+        }
+    }
+
 }

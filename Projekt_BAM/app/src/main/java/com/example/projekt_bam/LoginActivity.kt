@@ -2,6 +2,7 @@ package com.example.projekt_bam
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -19,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginButton: Button
 
     private lateinit var database: AppDatabase
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +32,10 @@ class LoginActivity : AppCompatActivity() {
         loginButton = findViewById(R.id.buttonLogin)
 
         // Inicjalizacja obiektu UserDao (dostosuj do swojej implementacji)
-         database = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "user-database").build()
+        database = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "user-database").build()
+
+        // Inicjalizacja SharedPreferences
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
         // Obsługa kliknięcia przycisku logowania
         loginButton.setOnClickListener {
@@ -50,8 +55,11 @@ class LoginActivity : AppCompatActivity() {
             val user = database.userDao().getUserByEmailAndPassword(email, password)
 
             if (user != null) {
-                // Logowanie udane, zapisz zalogowanego użytkownika i otwórz nową aktywność HomeActivity
-                saveLoggedInUser(user)
+                // Zapisz informacje o zalogowanym użytkowniku w SharedPreferences
+                sharedPreferences.edit().putBoolean("is_logged_in", true).apply()
+                sharedPreferences.edit().putString("logged_in_email", user.email).apply()
+
+                // Logowanie udane, otwórz nową aktywność lub wykonaj inne operacje
                 runOnUiThread {
                     Toast.makeText(this@LoginActivity, "Logowanie udane", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@LoginActivity, HomeActivity::class.java)
@@ -65,13 +73,5 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    private fun saveLoggedInUser(user: UserEntity) {
-        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putLong("user_id", user.id)
-        editor.putString("email", user.email)
-        editor.apply()
     }
 }
