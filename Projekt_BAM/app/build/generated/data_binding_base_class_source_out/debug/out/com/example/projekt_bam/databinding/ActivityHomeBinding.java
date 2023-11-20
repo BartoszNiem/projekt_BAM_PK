@@ -24,12 +24,16 @@ public final class ActivityHomeBinding implements ViewBinding {
   public final Button buttonEditProfile;
 
   @NonNull
+  public final Button buttonLogout;
+
+  @NonNull
   public final TextView textViewWelcomeMessage;
 
   private ActivityHomeBinding(@NonNull RelativeLayout rootView, @NonNull Button buttonEditProfile,
-      @NonNull TextView textViewWelcomeMessage) {
+      @NonNull Button buttonLogout, @NonNull TextView textViewWelcomeMessage) {
     this.rootView = rootView;
     this.buttonEditProfile = buttonEditProfile;
+    this.buttonLogout = buttonLogout;
     this.textViewWelcomeMessage = textViewWelcomeMessage;
   }
 
@@ -66,13 +70,19 @@ public final class ActivityHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.buttonLogout;
+      Button buttonLogout = ViewBindings.findChildViewById(rootView, id);
+      if (buttonLogout == null) {
+        break missingId;
+      }
+
       id = R.id.textViewWelcomeMessage;
       TextView textViewWelcomeMessage = ViewBindings.findChildViewById(rootView, id);
       if (textViewWelcomeMessage == null) {
         break missingId;
       }
 
-      return new ActivityHomeBinding((RelativeLayout) rootView, buttonEditProfile,
+      return new ActivityHomeBinding((RelativeLayout) rootView, buttonEditProfile, buttonLogout,
           textViewWelcomeMessage);
     }
     String missingId = rootView.getResources().getResourceName(id);

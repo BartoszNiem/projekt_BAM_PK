@@ -3194,6 +3194,7 @@ int id buttonEditProfile 0x7f080205
 int id buttonGoToLogin 0x7f080067
 int id buttonGoToRegistration 0x7f080068
 int id buttonLogin 0x7f080069
+int id buttonLogout 0x7f08020c
 int id buttonPanel 0x7f08006a
 int id buttonRegister 0x7f08006b
 int id buttonSaveChanges 0x7f080206

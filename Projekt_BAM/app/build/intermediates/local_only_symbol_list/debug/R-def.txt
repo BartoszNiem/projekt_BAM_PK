@@ -13,6 +13,7 @@ id buttonEditProfile
 id buttonGoToLogin
 id buttonGoToRegistration
 id buttonLogin
+id buttonLogout
 id buttonRegister
 id buttonSaveChanges
 id editTextAddress

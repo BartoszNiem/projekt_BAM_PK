@@ -31,10 +31,14 @@ class HomeActivity : AppCompatActivity() {
         }
 
         val buttonEditProfile: Button = findViewById(R.id.buttonEditProfile)
-
         buttonEditProfile.setOnClickListener {
             val intent = Intent(this, EditProfileActivity::class.java)
             startActivity(intent)
+        }
+
+        val buttonLogOut: Button = findViewById(R.id.buttonLogout)
+        buttonLogOut.setOnClickListener {
+            logoutUser()
         }
     }
 
@@ -50,6 +54,18 @@ class HomeActivity : AppCompatActivity() {
                 null
             }
         }
+    }
+
+    private fun logoutUser() {
+        // Wyczyść informacje o zalogowanym użytkowniku w SharedPreferences
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putBoolean("is_logged_in", false).apply()
+        sharedPreferences.edit().remove("logged_in_email").apply()
+
+        // Przenieś użytkownika do LoginActivity
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()  // Opcjonalnie: Zakończ aktywność HomeActivity, aby użytkownik nie mógł wrócić przyciskiem "Wstecz".
     }
 
 }
