@@ -3190,11 +3190,13 @@ int id bounce 0x7f080063
 int id bounceBoth 0x7f080064
 int id bounceEnd 0x7f080065
 int id bounceStart 0x7f080066
+int id buttonEditProfile 0x7f080205
 int id buttonGoToLogin 0x7f080067
 int id buttonGoToRegistration 0x7f080068
 int id buttonLogin 0x7f080069
 int id buttonPanel 0x7f08006a
 int id buttonRegister 0x7f08006b
+int id buttonSaveChanges 0x7f080206
 int id cache_measures 0x7f08006c
 int id callMeasure 0x7f08006d
 int id cancel_button 0x7f08006e
@@ -3267,11 +3269,15 @@ int id easeInOut 0x7f0800b0
 int id easeOut 0x7f0800b1
 int id east 0x7f0800b2
 int id edge 0x7f0800b3
+int id editTextAddress 0x7f080207
 int id editTextConfirmPassword 0x7f0800b4
 int id editTextEmail 0x7f0800b5
 int id editTextFirstName 0x7f0800b6
+int id editTextIdNumber 0x7f080208
 int id editTextLastName 0x7f0800b7
 int id editTextPassword 0x7f0800b8
+int id editTextPesel 0x7f080209
+int id editTextPhoneNumber 0x7f08020a
 int id edit_query 0x7f0800b9
 int id elastic 0x7f0800ba
 int id embed 0x7f0800bb
@@ -3403,6 +3409,7 @@ int id mtrl_view_tag_bottom_padding 0x7f080138
 int id multiply 0x7f080139
 int id nav_controller_view_tag 0x7f08013a
 int id nav_graph 0x7f08013b
+int id nav_graph2 0x7f08020b
 int id nav_host_fragment_container 0x7f08013c
 int id navigation_bar_item_active_indicator_view 0x7f08013d
 int id navigation_bar_item_icon_container 0x7f08013e
@@ -3719,6 +3726,7 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0b0018
 int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
+int layout activity_edit_profile 0x7f0b006d
 int layout activity_home 0x7f0b001c
 int layout activity_login 0x7f0b001d
 int layout activity_main 0x7f0b001e
@@ -3803,6 +3811,7 @@ int layout support_simple_spinner_dropdown_item 0x7f0b006c
 int mipmap ic_launcher 0x7f0d0000
 int mipmap ic_launcher_round 0x7f0d0001
 int navigation nav_graph 0x7f0e0000
+int navigation nav_graph2 0x7f0e0001
 int plurals mtrl_badge_content_description 0x7f0f0000
 int string abc_action_bar_home_description 0x7f100000
 int string abc_action_bar_up_description 0x7f100001
@@ -3972,6 +3981,7 @@ int string second_fragment_label 0x7f1000a4
 int string side_sheet_accessibility_pane_title 0x7f1000a5
 int string side_sheet_behavior 0x7f1000a6
 int string status_bar_notification_info_overflow 0x7f1000a7
+int string title_activity_edit_profile 0x7f1000a9
 int string title_activity_home 0x7f1000a8
 int style AlertDialog_AppCompat 0x7f110000
 int style AlertDialog_AppCompat_Light 0x7f110001

@@ -1,8 +1,10 @@
 package com.example.projekt_bam
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
@@ -25,8 +27,14 @@ class HomeActivity : AppCompatActivity() {
 
         GlobalScope.launch(Dispatchers.Main) {
             val loggedInUser = getLoggedInUser()
-
             welcomeMessageTextView.text = "Witaj, ${loggedInUser?.email}!"
+        }
+
+        val buttonEditProfile: Button = findViewById(R.id.buttonEditProfile)
+
+        buttonEditProfile.setOnClickListener {
+            val intent = Intent(this, EditProfileActivity::class.java)
+            startActivity(intent)
         }
     }
 

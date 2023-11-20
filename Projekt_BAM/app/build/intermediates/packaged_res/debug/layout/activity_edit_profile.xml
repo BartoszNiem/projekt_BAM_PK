@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfileActivity">
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Adres e-mail"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:enabled="false" />
+
+    <EditText
+        android:id="@+id/editTextFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEmail"
+        android:layout_marginTop="16dp"
+        android:hint="Imię"
+        android:inputType="text"
+        android:padding="16dp" />
+
+    <EditText
+        android:id="@+id/editTextLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextFirstName"
+        android:layout_marginTop="16dp"
+        android:hint="Nazwisko"
+        android:inputType="text"
+        android:padding="16dp" />
+
+    <EditText
+        android:id="@+id/editTextPesel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextLastName"
+        android:layout_marginTop="16dp"
+        android:hint="PESEL"
+        android:inputType="number"
+        android:padding="16dp" />
+
+    <EditText
+        android:id="@+id/editTextAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPesel"
+        android:layout_marginTop="16dp"
+        android:hint="Adres"
+        android:inputType="text"
+        android:padding="16dp" />
+
+    <EditText
+        android:id="@+id/editTextIdNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextAddress"
+        android:layout_marginTop="16dp"
+        android:hint="Numer dowodu"
+        android:inputType="text"
+        android:padding="16dp" />
+
+    <EditText
+        android:id="@+id/editTextPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextIdNumber"
+        android:layout_marginTop="16dp"
+        android:hint="Numer telefonu"
+        android:inputType="phone"
+        android:padding="16dp" />
+
+    <Button
+        android:id="@+id/buttonSaveChanges"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPhoneNumber"
+        android:layout_marginTop="24dp"
+        android:text="Zapisz zmiany" />
+
+</RelativeLayout>

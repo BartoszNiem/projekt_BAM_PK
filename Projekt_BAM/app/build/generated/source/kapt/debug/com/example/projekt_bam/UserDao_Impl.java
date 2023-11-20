@@ -1,6 +1,7 @@
 package com.example.projekt_bam;
 
 import android.database.Cursor;
+import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
@@ -20,6 +21,8 @@ public final class UserDao_Impl implements UserDao {
   private final RoomDatabase __db;
 
   private final EntityInsertionAdapter<UserEntity> __insertionAdapterOfUserEntity;
+
+  private final EntityDeletionOrUpdateAdapter<UserEntity> __updateAdapterOfUserEntity;
 
   public UserDao_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -74,6 +77,58 @@ public final class UserDao_Impl implements UserDao {
         }
       }
     };
+    this.__updateAdapterOfUserEntity = new EntityDeletionOrUpdateAdapter<UserEntity>(__db) {
+      @Override
+      public String createQuery() {
+        return "UPDATE OR ABORT `users` SET `id` = ?,`email` = ?,`password` = ?,`first_name` = ?,`last_name` = ?,`pesel` = ?,`address` = ?,`id_number` = ?,`phone_number` = ? WHERE `id` = ?";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, UserEntity value) {
+        stmt.bindLong(1, value.getId());
+        if (value.getEmail() == null) {
+          stmt.bindNull(2);
+        } else {
+          stmt.bindString(2, value.getEmail());
+        }
+        if (value.getPassword() == null) {
+          stmt.bindNull(3);
+        } else {
+          stmt.bindString(3, value.getPassword());
+        }
+        if (value.getFirstName() == null) {
+          stmt.bindNull(4);
+        } else {
+          stmt.bindString(4, value.getFirstName());
+        }
+        if (value.getLastName() == null) {
+          stmt.bindNull(5);
+        } else {
+          stmt.bindString(5, value.getLastName());
+        }
+        if (value.getPesel() == null) {
+          stmt.bindNull(6);
+        } else {
+          stmt.bindString(6, value.getPesel());
+        }
+        if (value.getAddress() == null) {
+          stmt.bindNull(7);
+        } else {
+          stmt.bindString(7, value.getAddress());
+        }
+        if (value.getIdNumber() == null) {
+          stmt.bindNull(8);
+        } else {
+          stmt.bindString(8, value.getIdNumber());
+        }
+        if (value.getPhoneNumber() == null) {
+          stmt.bindNull(9);
+        } else {
+          stmt.bindString(9, value.getPhoneNumber());
+        }
+        stmt.bindLong(10, value.getId());
+      }
+    };
   }
 
   @Override
@@ -82,6 +137,18 @@ public final class UserDao_Impl implements UserDao {
     __db.beginTransaction();
     try {
       __insertionAdapterOfUserEntity.insert(user);
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
+  public void updateUser(final UserEntity user) {
+    __db.assertNotSuspendingTransaction();
+    __db.beginTransaction();
+    try {
+      __updateAdapterOfUserEntity.handle(user);
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();

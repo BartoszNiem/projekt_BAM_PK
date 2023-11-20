@@ -4,6 +4,7 @@ package com.example.projekt_bam.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -20,11 +21,15 @@ public final class ActivityHomeBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
+  public final Button buttonEditProfile;
+
+  @NonNull
   public final TextView textViewWelcomeMessage;
 
-  private ActivityHomeBinding(@NonNull RelativeLayout rootView,
+  private ActivityHomeBinding(@NonNull RelativeLayout rootView, @NonNull Button buttonEditProfile,
       @NonNull TextView textViewWelcomeMessage) {
     this.rootView = rootView;
+    this.buttonEditProfile = buttonEditProfile;
     this.textViewWelcomeMessage = textViewWelcomeMessage;
   }
 
@@ -55,13 +60,20 @@ public final class ActivityHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.buttonEditProfile;
+      Button buttonEditProfile = ViewBindings.findChildViewById(rootView, id);
+      if (buttonEditProfile == null) {
+        break missingId;
+      }
+
       id = R.id.textViewWelcomeMessage;
       TextView textViewWelcomeMessage = ViewBindings.findChildViewById(rootView, id);
       if (textViewWelcomeMessage == null) {
         break missingId;
       }
 
-      return new ActivityHomeBinding((RelativeLayout) rootView, textViewWelcomeMessage);
+      return new ActivityHomeBinding((RelativeLayout) rootView, buttonEditProfile,
+          textViewWelcomeMessage);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

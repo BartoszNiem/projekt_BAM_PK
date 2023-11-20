@@ -3191,11 +3191,13 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id buttonEditProfile
 id buttonGoToLogin
 id buttonGoToRegistration
 id buttonLogin
 id buttonPanel
 id buttonRegister
+id buttonSaveChanges
 id cache_measures
 id callMeasure
 id cancel_button
@@ -3268,11 +3270,15 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editTextAddress
 id editTextConfirmPassword
 id editTextEmail
 id editTextFirstName
+id editTextIdNumber
 id editTextLastName
 id editTextPassword
+id editTextPesel
+id editTextPhoneNumber
 id edit_query
 id elastic
 id embed
@@ -3404,6 +3410,7 @@ id mtrl_view_tag_bottom_padding
 id multiply
 id nav_controller_view_tag
 id nav_graph
+id nav_graph2
 id nav_host_fragment_container
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
@@ -3720,6 +3727,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_edit_profile
 layout activity_home
 layout activity_login
 layout activity_main
@@ -3804,6 +3812,7 @@ layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation nav_graph
+navigation nav_graph2
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -3973,6 +3982,7 @@ string second_fragment_label
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior
 string status_bar_notification_info_overflow
+string title_activity_edit_profile
 string title_activity_home
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

@@ -28,6 +28,11 @@
         android:testOnly="true"
         android:theme="@style/Theme.Projekt_BAM" >
         <activity
+            android:name="com.example.projekt_bam.EditProfileActivity"
+            android:exported="false"
+            android:label="@string/title_activity_edit_profile"
+            android:theme="@style/Theme.Projekt_BAM" />
+        <activity
             android:name="com.example.projekt_bam.HomeActivity"
             android:exported="false" />
         <activity

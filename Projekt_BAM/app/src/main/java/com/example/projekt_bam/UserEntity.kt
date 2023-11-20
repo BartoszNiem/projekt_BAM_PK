@@ -13,15 +13,15 @@ data class UserEntity(
     @ColumnInfo(name = "password")
     val password: String,
     @ColumnInfo(name = "first_name")
-    val firstName: String,
+    var firstName: String,
     @ColumnInfo(name = "last_name")
-    val lastName: String,
+    var lastName: String,
     @ColumnInfo(name = "pesel")
-    val pesel: String = "",
+    var pesel: String = "",
     @ColumnInfo(name = "address")
-    val address: String = "",
+    var address: String = "",
     @ColumnInfo(name = "id_number")
-    val idNumber: String = "",
+    var idNumber: String = "",
     @ColumnInfo(name = "phone_number")
-    val phoneNumber: String = ""
+    var phoneNumber: String = ""
 )

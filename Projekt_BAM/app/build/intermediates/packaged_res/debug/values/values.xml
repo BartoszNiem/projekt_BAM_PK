@@ -44,6 +44,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="second_fragment_label">Second Fragment</string>
+    <string name="title_activity_edit_profile">EditProfileActivity</string>
     <string name="title_activity_home">HomeActivity</string>
     <style name="Base.Theme.Projekt_BAM" parent="Theme.Material3.DayNight.NoActionBar">
         
