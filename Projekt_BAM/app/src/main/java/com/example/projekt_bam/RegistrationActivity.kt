@@ -16,6 +16,7 @@ class RegistrationActivity : AppCompatActivity() {
 
     private lateinit var database: AppDatabase
 
+
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var confirmPasswordEditText: EditText
@@ -26,6 +27,8 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
+
+        val keystoreInstance = KeystoreWrapper.getInstance(applicationContext)
 
         database = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "user-database").build()
 
@@ -39,12 +42,12 @@ class RegistrationActivity : AppCompatActivity() {
 
         // Obsługa kliknięcia przycisku rejestracji
         registerButton.setOnClickListener {
-            registerUser()
+            registerUser(keystoreInstance)
             showAllUsers()
         }
     }
 
-    private fun registerUser() {
+    private fun registerUser(keystoreInstance: KeystoreWrapper) {
         val email = emailEditText.text.toString()
         val password = passwordEditText.text.toString()
         val confirmPassword = confirmPasswordEditText.text.toString()
@@ -63,18 +66,26 @@ class RegistrationActivity : AppCompatActivity() {
             return
         }
 
+        val encryptedPassword = keystoreInstance.encryptData(password)
+
         // Tutaj dodaj logikę zapisu użytkownika do bazy danych lub serwera
 
+        // Save the IVs as Base64-encoded strings
         val user = UserEntity(
             email = email,
-            password = password,
+            password = encryptedPassword.data,
+            passwordIV = encryptedPassword.iv,
             firstName = firstName,
             lastName = lastName,
         )
 
         GlobalScope.launch(Dispatchers.IO) {
             database.userDao().insertUser(user)
+            val user = database.userDao().getUserByEmail(email)
+            Log.d("Users", "User: $user")
         }
+
+
 
         showToast("Rejestracja udana")
         finish() // Zakończ aktywność rejestracji

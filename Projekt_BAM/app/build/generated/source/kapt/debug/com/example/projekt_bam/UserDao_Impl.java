@@ -29,7 +29,7 @@ public final class UserDao_Impl implements UserDao {
     this.__insertionAdapterOfUserEntity = new EntityInsertionAdapter<UserEntity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `users` (`id`,`email`,`password`,`first_name`,`last_name`,`pesel`,`address`,`id_number`,`phone_number`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `users` (`id`,`email`,`password`,`password_IV`,`first_name`,`last_name`,`pesel`,`pesel_IV`,`address`,`address_IV`,`id_number`,`id_nubmer_IV`,`phone_number`,`phone_number_IV`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -45,42 +45,67 @@ public final class UserDao_Impl implements UserDao {
         } else {
           stmt.bindString(3, value.getPassword());
         }
-        if (value.getFirstName() == null) {
+        if (value.getPasswordIV() == null) {
           stmt.bindNull(4);
         } else {
-          stmt.bindString(4, value.getFirstName());
+          stmt.bindBlob(4, value.getPasswordIV());
         }
-        if (value.getLastName() == null) {
+        if (value.getFirstName() == null) {
           stmt.bindNull(5);
         } else {
-          stmt.bindString(5, value.getLastName());
+          stmt.bindString(5, value.getFirstName());
         }
-        if (value.getPesel() == null) {
+        if (value.getLastName() == null) {
           stmt.bindNull(6);
         } else {
-          stmt.bindString(6, value.getPesel());
+          stmt.bindString(6, value.getLastName());
         }
-        if (value.getAddress() == null) {
+        if (value.getPesel() == null) {
           stmt.bindNull(7);
         } else {
-          stmt.bindString(7, value.getAddress());
+          stmt.bindString(7, value.getPesel());
         }
-        if (value.getIdNumber() == null) {
+        if (value.getPeselIV() == null) {
           stmt.bindNull(8);
         } else {
-          stmt.bindString(8, value.getIdNumber());
+          stmt.bindBlob(8, value.getPeselIV());
         }
-        if (value.getPhoneNumber() == null) {
+        if (value.getAddress() == null) {
           stmt.bindNull(9);
         } else {
-          stmt.bindString(9, value.getPhoneNumber());
+          stmt.bindString(9, value.getAddress());
+        }
+        if (value.getAddressIV() == null) {
+          stmt.bindNull(10);
+        } else {
+          stmt.bindBlob(10, value.getAddressIV());
+        }
+        if (value.getIdNumber() == null) {
+          stmt.bindNull(11);
+        } else {
+          stmt.bindString(11, value.getIdNumber());
+        }
+        if (value.getIdNumberIV() == null) {
+          stmt.bindNull(12);
+        } else {
+          stmt.bindBlob(12, value.getIdNumberIV());
+        }
+        if (value.getPhoneNumber() == null) {
+          stmt.bindNull(13);
+        } else {
+          stmt.bindString(13, value.getPhoneNumber());
+        }
+        if (value.getPhoneNumberIV() == null) {
+          stmt.bindNull(14);
+        } else {
+          stmt.bindBlob(14, value.getPhoneNumberIV());
         }
       }
     };
     this.__updateAdapterOfUserEntity = new EntityDeletionOrUpdateAdapter<UserEntity>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `users` SET `id` = ?,`email` = ?,`password` = ?,`first_name` = ?,`last_name` = ?,`pesel` = ?,`address` = ?,`id_number` = ?,`phone_number` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `users` SET `id` = ?,`email` = ?,`password` = ?,`password_IV` = ?,`first_name` = ?,`last_name` = ?,`pesel` = ?,`pesel_IV` = ?,`address` = ?,`address_IV` = ?,`id_number` = ?,`id_nubmer_IV` = ?,`phone_number` = ?,`phone_number_IV` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -96,37 +121,62 @@ public final class UserDao_Impl implements UserDao {
         } else {
           stmt.bindString(3, value.getPassword());
         }
-        if (value.getFirstName() == null) {
+        if (value.getPasswordIV() == null) {
           stmt.bindNull(4);
         } else {
-          stmt.bindString(4, value.getFirstName());
+          stmt.bindBlob(4, value.getPasswordIV());
         }
-        if (value.getLastName() == null) {
+        if (value.getFirstName() == null) {
           stmt.bindNull(5);
         } else {
-          stmt.bindString(5, value.getLastName());
+          stmt.bindString(5, value.getFirstName());
         }
-        if (value.getPesel() == null) {
+        if (value.getLastName() == null) {
           stmt.bindNull(6);
         } else {
-          stmt.bindString(6, value.getPesel());
+          stmt.bindString(6, value.getLastName());
         }
-        if (value.getAddress() == null) {
+        if (value.getPesel() == null) {
           stmt.bindNull(7);
         } else {
-          stmt.bindString(7, value.getAddress());
+          stmt.bindString(7, value.getPesel());
         }
-        if (value.getIdNumber() == null) {
+        if (value.getPeselIV() == null) {
           stmt.bindNull(8);
         } else {
-          stmt.bindString(8, value.getIdNumber());
+          stmt.bindBlob(8, value.getPeselIV());
         }
-        if (value.getPhoneNumber() == null) {
+        if (value.getAddress() == null) {
           stmt.bindNull(9);
         } else {
-          stmt.bindString(9, value.getPhoneNumber());
+          stmt.bindString(9, value.getAddress());
         }
-        stmt.bindLong(10, value.getId());
+        if (value.getAddressIV() == null) {
+          stmt.bindNull(10);
+        } else {
+          stmt.bindBlob(10, value.getAddressIV());
+        }
+        if (value.getIdNumber() == null) {
+          stmt.bindNull(11);
+        } else {
+          stmt.bindString(11, value.getIdNumber());
+        }
+        if (value.getIdNumberIV() == null) {
+          stmt.bindNull(12);
+        } else {
+          stmt.bindBlob(12, value.getIdNumberIV());
+        }
+        if (value.getPhoneNumber() == null) {
+          stmt.bindNull(13);
+        } else {
+          stmt.bindString(13, value.getPhoneNumber());
+        }
+        if (value.getPhoneNumberIV() == null) {
+          stmt.bindNull(14);
+        } else {
+          stmt.bindBlob(14, value.getPhoneNumberIV());
+        }
+        stmt.bindLong(15, value.getId());
       }
     };
   }
@@ -171,12 +221,17 @@ public final class UserDao_Impl implements UserDao {
       final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
       final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
       final int _cursorIndexOfPassword = CursorUtil.getColumnIndexOrThrow(_cursor, "password");
+      final int _cursorIndexOfPasswordIV = CursorUtil.getColumnIndexOrThrow(_cursor, "password_IV");
       final int _cursorIndexOfFirstName = CursorUtil.getColumnIndexOrThrow(_cursor, "first_name");
       final int _cursorIndexOfLastName = CursorUtil.getColumnIndexOrThrow(_cursor, "last_name");
       final int _cursorIndexOfPesel = CursorUtil.getColumnIndexOrThrow(_cursor, "pesel");
+      final int _cursorIndexOfPeselIV = CursorUtil.getColumnIndexOrThrow(_cursor, "pesel_IV");
       final int _cursorIndexOfAddress = CursorUtil.getColumnIndexOrThrow(_cursor, "address");
+      final int _cursorIndexOfAddressIV = CursorUtil.getColumnIndexOrThrow(_cursor, "address_IV");
       final int _cursorIndexOfIdNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "id_number");
+      final int _cursorIndexOfIdNumberIV = CursorUtil.getColumnIndexOrThrow(_cursor, "id_nubmer_IV");
       final int _cursorIndexOfPhoneNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "phone_number");
+      final int _cursorIndexOfPhoneNumberIV = CursorUtil.getColumnIndexOrThrow(_cursor, "phone_number_IV");
       final UserEntity _result;
       if(_cursor.moveToFirst()) {
         final long _tmpId;
@@ -192,6 +247,12 @@ public final class UserDao_Impl implements UserDao {
           _tmpPassword = null;
         } else {
           _tmpPassword = _cursor.getString(_cursorIndexOfPassword);
+        }
+        final byte[] _tmpPasswordIV;
+        if (_cursor.isNull(_cursorIndexOfPasswordIV)) {
+          _tmpPasswordIV = null;
+        } else {
+          _tmpPasswordIV = _cursor.getBlob(_cursorIndexOfPasswordIV);
         }
         final String _tmpFirstName;
         if (_cursor.isNull(_cursorIndexOfFirstName)) {
@@ -211,11 +272,23 @@ public final class UserDao_Impl implements UserDao {
         } else {
           _tmpPesel = _cursor.getString(_cursorIndexOfPesel);
         }
+        final byte[] _tmpPeselIV;
+        if (_cursor.isNull(_cursorIndexOfPeselIV)) {
+          _tmpPeselIV = null;
+        } else {
+          _tmpPeselIV = _cursor.getBlob(_cursorIndexOfPeselIV);
+        }
         final String _tmpAddress;
         if (_cursor.isNull(_cursorIndexOfAddress)) {
           _tmpAddress = null;
         } else {
           _tmpAddress = _cursor.getString(_cursorIndexOfAddress);
+        }
+        final byte[] _tmpAddressIV;
+        if (_cursor.isNull(_cursorIndexOfAddressIV)) {
+          _tmpAddressIV = null;
+        } else {
+          _tmpAddressIV = _cursor.getBlob(_cursorIndexOfAddressIV);
         }
         final String _tmpIdNumber;
         if (_cursor.isNull(_cursorIndexOfIdNumber)) {
@@ -223,13 +296,25 @@ public final class UserDao_Impl implements UserDao {
         } else {
           _tmpIdNumber = _cursor.getString(_cursorIndexOfIdNumber);
         }
+        final byte[] _tmpIdNumberIV;
+        if (_cursor.isNull(_cursorIndexOfIdNumberIV)) {
+          _tmpIdNumberIV = null;
+        } else {
+          _tmpIdNumberIV = _cursor.getBlob(_cursorIndexOfIdNumberIV);
+        }
         final String _tmpPhoneNumber;
         if (_cursor.isNull(_cursorIndexOfPhoneNumber)) {
           _tmpPhoneNumber = null;
         } else {
           _tmpPhoneNumber = _cursor.getString(_cursorIndexOfPhoneNumber);
         }
-        _result = new UserEntity(_tmpId,_tmpEmail,_tmpPassword,_tmpFirstName,_tmpLastName,_tmpPesel,_tmpAddress,_tmpIdNumber,_tmpPhoneNumber);
+        final byte[] _tmpPhoneNumberIV;
+        if (_cursor.isNull(_cursorIndexOfPhoneNumberIV)) {
+          _tmpPhoneNumberIV = null;
+        } else {
+          _tmpPhoneNumberIV = _cursor.getBlob(_cursorIndexOfPhoneNumberIV);
+        }
+        _result = new UserEntity(_tmpId,_tmpEmail,_tmpPassword,_tmpPasswordIV,_tmpFirstName,_tmpLastName,_tmpPesel,_tmpPeselIV,_tmpAddress,_tmpAddressIV,_tmpIdNumber,_tmpIdNumberIV,_tmpPhoneNumber,_tmpPhoneNumberIV);
       } else {
         _result = null;
       }
@@ -250,12 +335,17 @@ public final class UserDao_Impl implements UserDao {
       final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
       final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
       final int _cursorIndexOfPassword = CursorUtil.getColumnIndexOrThrow(_cursor, "password");
+      final int _cursorIndexOfPasswordIV = CursorUtil.getColumnIndexOrThrow(_cursor, "password_IV");
       final int _cursorIndexOfFirstName = CursorUtil.getColumnIndexOrThrow(_cursor, "first_name");
       final int _cursorIndexOfLastName = CursorUtil.getColumnIndexOrThrow(_cursor, "last_name");
       final int _cursorIndexOfPesel = CursorUtil.getColumnIndexOrThrow(_cursor, "pesel");
+      final int _cursorIndexOfPeselIV = CursorUtil.getColumnIndexOrThrow(_cursor, "pesel_IV");
       final int _cursorIndexOfAddress = CursorUtil.getColumnIndexOrThrow(_cursor, "address");
+      final int _cursorIndexOfAddressIV = CursorUtil.getColumnIndexOrThrow(_cursor, "address_IV");
       final int _cursorIndexOfIdNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "id_number");
+      final int _cursorIndexOfIdNumberIV = CursorUtil.getColumnIndexOrThrow(_cursor, "id_nubmer_IV");
       final int _cursorIndexOfPhoneNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "phone_number");
+      final int _cursorIndexOfPhoneNumberIV = CursorUtil.getColumnIndexOrThrow(_cursor, "phone_number_IV");
       final List<UserEntity> _result = new ArrayList<UserEntity>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final UserEntity _item;
@@ -272,6 +362,12 @@ public final class UserDao_Impl implements UserDao {
           _tmpPassword = null;
         } else {
           _tmpPassword = _cursor.getString(_cursorIndexOfPassword);
+        }
+        final byte[] _tmpPasswordIV;
+        if (_cursor.isNull(_cursorIndexOfPasswordIV)) {
+          _tmpPasswordIV = null;
+        } else {
+          _tmpPasswordIV = _cursor.getBlob(_cursorIndexOfPasswordIV);
         }
         final String _tmpFirstName;
         if (_cursor.isNull(_cursorIndexOfFirstName)) {
@@ -291,11 +387,23 @@ public final class UserDao_Impl implements UserDao {
         } else {
           _tmpPesel = _cursor.getString(_cursorIndexOfPesel);
         }
+        final byte[] _tmpPeselIV;
+        if (_cursor.isNull(_cursorIndexOfPeselIV)) {
+          _tmpPeselIV = null;
+        } else {
+          _tmpPeselIV = _cursor.getBlob(_cursorIndexOfPeselIV);
+        }
         final String _tmpAddress;
         if (_cursor.isNull(_cursorIndexOfAddress)) {
           _tmpAddress = null;
         } else {
           _tmpAddress = _cursor.getString(_cursorIndexOfAddress);
+        }
+        final byte[] _tmpAddressIV;
+        if (_cursor.isNull(_cursorIndexOfAddressIV)) {
+          _tmpAddressIV = null;
+        } else {
+          _tmpAddressIV = _cursor.getBlob(_cursorIndexOfAddressIV);
         }
         final String _tmpIdNumber;
         if (_cursor.isNull(_cursorIndexOfIdNumber)) {
@@ -303,13 +411,25 @@ public final class UserDao_Impl implements UserDao {
         } else {
           _tmpIdNumber = _cursor.getString(_cursorIndexOfIdNumber);
         }
+        final byte[] _tmpIdNumberIV;
+        if (_cursor.isNull(_cursorIndexOfIdNumberIV)) {
+          _tmpIdNumberIV = null;
+        } else {
+          _tmpIdNumberIV = _cursor.getBlob(_cursorIndexOfIdNumberIV);
+        }
         final String _tmpPhoneNumber;
         if (_cursor.isNull(_cursorIndexOfPhoneNumber)) {
           _tmpPhoneNumber = null;
         } else {
           _tmpPhoneNumber = _cursor.getString(_cursorIndexOfPhoneNumber);
         }
-        _item = new UserEntity(_tmpId,_tmpEmail,_tmpPassword,_tmpFirstName,_tmpLastName,_tmpPesel,_tmpAddress,_tmpIdNumber,_tmpPhoneNumber);
+        final byte[] _tmpPhoneNumberIV;
+        if (_cursor.isNull(_cursorIndexOfPhoneNumberIV)) {
+          _tmpPhoneNumberIV = null;
+        } else {
+          _tmpPhoneNumberIV = _cursor.getBlob(_cursorIndexOfPhoneNumberIV);
+        }
+        _item = new UserEntity(_tmpId,_tmpEmail,_tmpPassword,_tmpPasswordIV,_tmpFirstName,_tmpLastName,_tmpPesel,_tmpPeselIV,_tmpAddress,_tmpAddressIV,_tmpIdNumber,_tmpIdNumberIV,_tmpPhoneNumber,_tmpPhoneNumberIV);
         _result.add(_item);
       }
       return _result;
@@ -341,12 +461,17 @@ public final class UserDao_Impl implements UserDao {
       final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
       final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
       final int _cursorIndexOfPassword = CursorUtil.getColumnIndexOrThrow(_cursor, "password");
+      final int _cursorIndexOfPasswordIV = CursorUtil.getColumnIndexOrThrow(_cursor, "password_IV");
       final int _cursorIndexOfFirstName = CursorUtil.getColumnIndexOrThrow(_cursor, "first_name");
       final int _cursorIndexOfLastName = CursorUtil.getColumnIndexOrThrow(_cursor, "last_name");
       final int _cursorIndexOfPesel = CursorUtil.getColumnIndexOrThrow(_cursor, "pesel");
+      final int _cursorIndexOfPeselIV = CursorUtil.getColumnIndexOrThrow(_cursor, "pesel_IV");
       final int _cursorIndexOfAddress = CursorUtil.getColumnIndexOrThrow(_cursor, "address");
+      final int _cursorIndexOfAddressIV = CursorUtil.getColumnIndexOrThrow(_cursor, "address_IV");
       final int _cursorIndexOfIdNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "id_number");
+      final int _cursorIndexOfIdNumberIV = CursorUtil.getColumnIndexOrThrow(_cursor, "id_nubmer_IV");
       final int _cursorIndexOfPhoneNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "phone_number");
+      final int _cursorIndexOfPhoneNumberIV = CursorUtil.getColumnIndexOrThrow(_cursor, "phone_number_IV");
       final UserEntity _result;
       if(_cursor.moveToFirst()) {
         final long _tmpId;
@@ -362,6 +487,12 @@ public final class UserDao_Impl implements UserDao {
           _tmpPassword = null;
         } else {
           _tmpPassword = _cursor.getString(_cursorIndexOfPassword);
+        }
+        final byte[] _tmpPasswordIV;
+        if (_cursor.isNull(_cursorIndexOfPasswordIV)) {
+          _tmpPasswordIV = null;
+        } else {
+          _tmpPasswordIV = _cursor.getBlob(_cursorIndexOfPasswordIV);
         }
         final String _tmpFirstName;
         if (_cursor.isNull(_cursorIndexOfFirstName)) {
@@ -381,11 +512,23 @@ public final class UserDao_Impl implements UserDao {
         } else {
           _tmpPesel = _cursor.getString(_cursorIndexOfPesel);
         }
+        final byte[] _tmpPeselIV;
+        if (_cursor.isNull(_cursorIndexOfPeselIV)) {
+          _tmpPeselIV = null;
+        } else {
+          _tmpPeselIV = _cursor.getBlob(_cursorIndexOfPeselIV);
+        }
         final String _tmpAddress;
         if (_cursor.isNull(_cursorIndexOfAddress)) {
           _tmpAddress = null;
         } else {
           _tmpAddress = _cursor.getString(_cursorIndexOfAddress);
+        }
+        final byte[] _tmpAddressIV;
+        if (_cursor.isNull(_cursorIndexOfAddressIV)) {
+          _tmpAddressIV = null;
+        } else {
+          _tmpAddressIV = _cursor.getBlob(_cursorIndexOfAddressIV);
         }
         final String _tmpIdNumber;
         if (_cursor.isNull(_cursorIndexOfIdNumber)) {
@@ -393,13 +536,25 @@ public final class UserDao_Impl implements UserDao {
         } else {
           _tmpIdNumber = _cursor.getString(_cursorIndexOfIdNumber);
         }
+        final byte[] _tmpIdNumberIV;
+        if (_cursor.isNull(_cursorIndexOfIdNumberIV)) {
+          _tmpIdNumberIV = null;
+        } else {
+          _tmpIdNumberIV = _cursor.getBlob(_cursorIndexOfIdNumberIV);
+        }
         final String _tmpPhoneNumber;
         if (_cursor.isNull(_cursorIndexOfPhoneNumber)) {
           _tmpPhoneNumber = null;
         } else {
           _tmpPhoneNumber = _cursor.getString(_cursorIndexOfPhoneNumber);
         }
-        _result = new UserEntity(_tmpId,_tmpEmail,_tmpPassword,_tmpFirstName,_tmpLastName,_tmpPesel,_tmpAddress,_tmpIdNumber,_tmpPhoneNumber);
+        final byte[] _tmpPhoneNumberIV;
+        if (_cursor.isNull(_cursorIndexOfPhoneNumberIV)) {
+          _tmpPhoneNumberIV = null;
+        } else {
+          _tmpPhoneNumberIV = _cursor.getBlob(_cursorIndexOfPhoneNumberIV);
+        }
+        _result = new UserEntity(_tmpId,_tmpEmail,_tmpPassword,_tmpPasswordIV,_tmpFirstName,_tmpLastName,_tmpPesel,_tmpPeselIV,_tmpAddress,_tmpAddressIV,_tmpIdNumber,_tmpIdNumberIV,_tmpPhoneNumber,_tmpPhoneNumberIV);
       } else {
         _result = null;
       }
@@ -422,12 +577,17 @@ public final class UserDao_Impl implements UserDao {
       final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
       final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
       final int _cursorIndexOfPassword = CursorUtil.getColumnIndexOrThrow(_cursor, "password");
+      final int _cursorIndexOfPasswordIV = CursorUtil.getColumnIndexOrThrow(_cursor, "password_IV");
       final int _cursorIndexOfFirstName = CursorUtil.getColumnIndexOrThrow(_cursor, "first_name");
       final int _cursorIndexOfLastName = CursorUtil.getColumnIndexOrThrow(_cursor, "last_name");
       final int _cursorIndexOfPesel = CursorUtil.getColumnIndexOrThrow(_cursor, "pesel");
+      final int _cursorIndexOfPeselIV = CursorUtil.getColumnIndexOrThrow(_cursor, "pesel_IV");
       final int _cursorIndexOfAddress = CursorUtil.getColumnIndexOrThrow(_cursor, "address");
+      final int _cursorIndexOfAddressIV = CursorUtil.getColumnIndexOrThrow(_cursor, "address_IV");
       final int _cursorIndexOfIdNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "id_number");
+      final int _cursorIndexOfIdNumberIV = CursorUtil.getColumnIndexOrThrow(_cursor, "id_nubmer_IV");
       final int _cursorIndexOfPhoneNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "phone_number");
+      final int _cursorIndexOfPhoneNumberIV = CursorUtil.getColumnIndexOrThrow(_cursor, "phone_number_IV");
       final UserEntity _result;
       if(_cursor.moveToFirst()) {
         final long _tmpId;
@@ -443,6 +603,12 @@ public final class UserDao_Impl implements UserDao {
           _tmpPassword = null;
         } else {
           _tmpPassword = _cursor.getString(_cursorIndexOfPassword);
+        }
+        final byte[] _tmpPasswordIV;
+        if (_cursor.isNull(_cursorIndexOfPasswordIV)) {
+          _tmpPasswordIV = null;
+        } else {
+          _tmpPasswordIV = _cursor.getBlob(_cursorIndexOfPasswordIV);
         }
         final String _tmpFirstName;
         if (_cursor.isNull(_cursorIndexOfFirstName)) {
@@ -462,11 +628,23 @@ public final class UserDao_Impl implements UserDao {
         } else {
           _tmpPesel = _cursor.getString(_cursorIndexOfPesel);
         }
+        final byte[] _tmpPeselIV;
+        if (_cursor.isNull(_cursorIndexOfPeselIV)) {
+          _tmpPeselIV = null;
+        } else {
+          _tmpPeselIV = _cursor.getBlob(_cursorIndexOfPeselIV);
+        }
         final String _tmpAddress;
         if (_cursor.isNull(_cursorIndexOfAddress)) {
           _tmpAddress = null;
         } else {
           _tmpAddress = _cursor.getString(_cursorIndexOfAddress);
+        }
+        final byte[] _tmpAddressIV;
+        if (_cursor.isNull(_cursorIndexOfAddressIV)) {
+          _tmpAddressIV = null;
+        } else {
+          _tmpAddressIV = _cursor.getBlob(_cursorIndexOfAddressIV);
         }
         final String _tmpIdNumber;
         if (_cursor.isNull(_cursorIndexOfIdNumber)) {
@@ -474,13 +652,25 @@ public final class UserDao_Impl implements UserDao {
         } else {
           _tmpIdNumber = _cursor.getString(_cursorIndexOfIdNumber);
         }
+        final byte[] _tmpIdNumberIV;
+        if (_cursor.isNull(_cursorIndexOfIdNumberIV)) {
+          _tmpIdNumberIV = null;
+        } else {
+          _tmpIdNumberIV = _cursor.getBlob(_cursorIndexOfIdNumberIV);
+        }
         final String _tmpPhoneNumber;
         if (_cursor.isNull(_cursorIndexOfPhoneNumber)) {
           _tmpPhoneNumber = null;
         } else {
           _tmpPhoneNumber = _cursor.getString(_cursorIndexOfPhoneNumber);
         }
-        _result = new UserEntity(_tmpId,_tmpEmail,_tmpPassword,_tmpFirstName,_tmpLastName,_tmpPesel,_tmpAddress,_tmpIdNumber,_tmpPhoneNumber);
+        final byte[] _tmpPhoneNumberIV;
+        if (_cursor.isNull(_cursorIndexOfPhoneNumberIV)) {
+          _tmpPhoneNumberIV = null;
+        } else {
+          _tmpPhoneNumberIV = _cursor.getBlob(_cursorIndexOfPhoneNumberIV);
+        }
+        _result = new UserEntity(_tmpId,_tmpEmail,_tmpPassword,_tmpPasswordIV,_tmpFirstName,_tmpLastName,_tmpPesel,_tmpPeselIV,_tmpAddress,_tmpAddressIV,_tmpIdNumber,_tmpIdNumberIV,_tmpPhoneNumber,_tmpPhoneNumberIV);
       } else {
         _result = null;
       }

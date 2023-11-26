@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Base64
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -26,6 +28,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        val keystoreInstance = KeystoreWrapper.getInstance(applicationContext)
+
         // Inicjalizacja elementów interfejsu użytkownika
         emailEditText = findViewById(R.id.editTextEmail)
         passwordEditText = findViewById(R.id.editTextPassword)
@@ -45,16 +49,17 @@ class LoginActivity : AppCompatActivity() {
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Wprowadź adres e-mail i hasło", Toast.LENGTH_SHORT).show()
             } else {
-                loginUser(email, password)
+                loginUser(keystoreInstance, email, password)
             }
         }
     }
 
-    private fun loginUser(email: String, password: String) {
+    private fun loginUser(keystoreInstance: KeystoreWrapper, email: String, password: String) {
         GlobalScope.launch(Dispatchers.IO) {
-            val user = database.userDao().getUserByEmailAndPassword(email, password)
+            val user = database.userDao().getUserByEmail(email)
 
             if (user != null) {
+
                 // Zapisz informacje o zalogowanym użytkowniku w SharedPreferences
                 sharedPreferences.edit().putBoolean("is_logged_in", true).apply()
                 sharedPreferences.edit().putString("logged_in_email", user.email).apply()

@@ -37,9 +37,9 @@ public final class AppDatabase_Impl extends AppDatabase {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `email` TEXT NOT NULL, `password` TEXT NOT NULL, `first_name` TEXT NOT NULL, `last_name` TEXT NOT NULL, `pesel` TEXT NOT NULL, `address` TEXT NOT NULL, `id_number` TEXT NOT NULL, `phone_number` TEXT NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `email` TEXT NOT NULL, `password` TEXT NOT NULL, `password_IV` BLOB NOT NULL, `first_name` TEXT NOT NULL, `last_name` TEXT NOT NULL, `pesel` TEXT NOT NULL, `pesel_IV` BLOB NOT NULL, `address` TEXT NOT NULL, `address_IV` BLOB NOT NULL, `id_number` TEXT NOT NULL, `id_nubmer_IV` BLOB NOT NULL, `phone_number` TEXT NOT NULL, `phone_number_IV` BLOB NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '12737ee94b3f5170088549ab565e7210')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9a2ed679295fc9b33149d8861232b8a3')");
       }
 
       @Override
@@ -83,16 +83,21 @@ public final class AppDatabase_Impl extends AppDatabase {
 
       @Override
       public RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsUsers = new HashMap<String, TableInfo.Column>(9);
+        final HashMap<String, TableInfo.Column> _columnsUsers = new HashMap<String, TableInfo.Column>(14);
         _columnsUsers.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUsers.put("email", new TableInfo.Column("email", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUsers.put("password", new TableInfo.Column("password", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUsers.put("password_IV", new TableInfo.Column("password_IV", "BLOB", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUsers.put("first_name", new TableInfo.Column("first_name", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUsers.put("last_name", new TableInfo.Column("last_name", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUsers.put("pesel", new TableInfo.Column("pesel", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUsers.put("pesel_IV", new TableInfo.Column("pesel_IV", "BLOB", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUsers.put("address", new TableInfo.Column("address", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUsers.put("address_IV", new TableInfo.Column("address_IV", "BLOB", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUsers.put("id_number", new TableInfo.Column("id_number", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUsers.put("id_nubmer_IV", new TableInfo.Column("id_nubmer_IV", "BLOB", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUsers.put("phone_number", new TableInfo.Column("phone_number", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUsers.put("phone_number_IV", new TableInfo.Column("phone_number_IV", "BLOB", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysUsers = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesUsers = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoUsers = new TableInfo("users", _columnsUsers, _foreignKeysUsers, _indicesUsers);
@@ -104,7 +109,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "12737ee94b3f5170088549ab565e7210", "ee30bac91a5e8fc51e31d979fefc9979");
+    }, "9a2ed679295fc9b33149d8861232b8a3", "2fc3a57226ea94de5053ecb8e4f68b61");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
