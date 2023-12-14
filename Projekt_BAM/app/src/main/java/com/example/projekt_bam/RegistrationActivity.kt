@@ -68,9 +68,6 @@ class RegistrationActivity : AppCompatActivity() {
 
         val encryptedPassword = keystoreInstance.encryptData(password)
 
-        // Tutaj dodaj logikę zapisu użytkownika do bazy danych lub serwera
-
-        // Save the IVs as Base64-encoded strings
         val user = UserEntity(
             email = email,
             password = encryptedPassword.data,

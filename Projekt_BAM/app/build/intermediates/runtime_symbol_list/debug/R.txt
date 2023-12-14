@@ -3198,6 +3198,7 @@ int id buttonLogout 0x7f08020c
 int id buttonPanel 0x7f08006a
 int id buttonRegister 0x7f08006b
 int id buttonSaveChanges 0x7f080206
+int id buttonShowDecryptedData 0x7f08020d
 int id cache_measures 0x7f08006c
 int id callMeasure 0x7f08006d
 int id cancel_button 0x7f08006e
@@ -3338,6 +3339,12 @@ int id jumpToEnd 0x7f0800f0
 int id jumpToStart 0x7f0800f1
 int id labeled 0x7f0800f2
 int id layout 0x7f0800f3
+int id layoutAddress 0x7f08021d
+int id layoutFirstName 0x7f08020e
+int id layoutIdNumber 0x7f08020f
+int id layoutLastName 0x7f080210
+int id layoutPesel 0x7f080211
+int id layoutPhoneNumber 0x7f080212
 int id left 0x7f0800f4
 int id leftToRight 0x7f0800f5
 int id legacy 0x7f0800f6
@@ -3563,6 +3570,18 @@ int id textSpacerNoButtons 0x7f0801d0
 int id textSpacerNoTitle 0x7f0801d1
 int id textStart 0x7f0801d2
 int id textTop 0x7f0801d3
+int id textViewAddress 0x7f08021e
+int id textViewAddressLabel 0x7f08021f
+int id textViewFirstName 0x7f080213
+int id textViewFirstNameLabel 0x7f080214
+int id textViewIdNumber 0x7f080215
+int id textViewIdNumberLabel 0x7f080216
+int id textViewLastName 0x7f080217
+int id textViewLastNameLabel 0x7f080218
+int id textViewPesel 0x7f080219
+int id textViewPeselLabel 0x7f08021a
+int id textViewPhoneNumber 0x7f08021b
+int id textViewPhoneNumberLabel 0x7f08021c
 int id textViewWelcomeMessage 0x7f0801d4
 int id text_input_end_icon 0x7f0801d5
 int id text_input_error_icon 0x7f0801d6
@@ -4309,6 +4328,7 @@ int style Platform_V21_AppCompat_Light 0x7f110141
 int style Platform_V25_AppCompat 0x7f110142
 int style Platform_V25_AppCompat_Light 0x7f110143
 int style Platform_Widget_AppCompat_Spinner 0x7f110144
+int style ProfileField 0x7f11045d
 int style RtlOverlay_DialogWindowTitle_AppCompat 0x7f110145
 int style RtlOverlay_Widget_AppCompat_ActionBar_TitleItem 0x7f110146
 int style RtlOverlay_Widget_AppCompat_DialogTitle_Icon 0x7f110147

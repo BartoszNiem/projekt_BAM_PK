@@ -27,13 +27,99 @@ public final class ActivityHomeBinding implements ViewBinding {
   public final Button buttonLogout;
 
   @NonNull
+  public final Button buttonShowDecryptedData;
+
+  @NonNull
+  public final RelativeLayout layoutAddress;
+
+  @NonNull
+  public final RelativeLayout layoutFirstName;
+
+  @NonNull
+  public final RelativeLayout layoutIdNumber;
+
+  @NonNull
+  public final RelativeLayout layoutLastName;
+
+  @NonNull
+  public final RelativeLayout layoutPesel;
+
+  @NonNull
+  public final RelativeLayout layoutPhoneNumber;
+
+  @NonNull
+  public final TextView textViewAddress;
+
+  @NonNull
+  public final TextView textViewAddressLabel;
+
+  @NonNull
+  public final TextView textViewFirstName;
+
+  @NonNull
+  public final TextView textViewFirstNameLabel;
+
+  @NonNull
+  public final TextView textViewIdNumber;
+
+  @NonNull
+  public final TextView textViewIdNumberLabel;
+
+  @NonNull
+  public final TextView textViewLastName;
+
+  @NonNull
+  public final TextView textViewLastNameLabel;
+
+  @NonNull
+  public final TextView textViewPesel;
+
+  @NonNull
+  public final TextView textViewPeselLabel;
+
+  @NonNull
+  public final TextView textViewPhoneNumber;
+
+  @NonNull
+  public final TextView textViewPhoneNumberLabel;
+
+  @NonNull
   public final TextView textViewWelcomeMessage;
 
   private ActivityHomeBinding(@NonNull RelativeLayout rootView, @NonNull Button buttonEditProfile,
-      @NonNull Button buttonLogout, @NonNull TextView textViewWelcomeMessage) {
+      @NonNull Button buttonLogout, @NonNull Button buttonShowDecryptedData,
+      @NonNull RelativeLayout layoutAddress, @NonNull RelativeLayout layoutFirstName,
+      @NonNull RelativeLayout layoutIdNumber, @NonNull RelativeLayout layoutLastName,
+      @NonNull RelativeLayout layoutPesel, @NonNull RelativeLayout layoutPhoneNumber,
+      @NonNull TextView textViewAddress, @NonNull TextView textViewAddressLabel,
+      @NonNull TextView textViewFirstName, @NonNull TextView textViewFirstNameLabel,
+      @NonNull TextView textViewIdNumber, @NonNull TextView textViewIdNumberLabel,
+      @NonNull TextView textViewLastName, @NonNull TextView textViewLastNameLabel,
+      @NonNull TextView textViewPesel, @NonNull TextView textViewPeselLabel,
+      @NonNull TextView textViewPhoneNumber, @NonNull TextView textViewPhoneNumberLabel,
+      @NonNull TextView textViewWelcomeMessage) {
     this.rootView = rootView;
     this.buttonEditProfile = buttonEditProfile;
     this.buttonLogout = buttonLogout;
+    this.buttonShowDecryptedData = buttonShowDecryptedData;
+    this.layoutAddress = layoutAddress;
+    this.layoutFirstName = layoutFirstName;
+    this.layoutIdNumber = layoutIdNumber;
+    this.layoutLastName = layoutLastName;
+    this.layoutPesel = layoutPesel;
+    this.layoutPhoneNumber = layoutPhoneNumber;
+    this.textViewAddress = textViewAddress;
+    this.textViewAddressLabel = textViewAddressLabel;
+    this.textViewFirstName = textViewFirstName;
+    this.textViewFirstNameLabel = textViewFirstNameLabel;
+    this.textViewIdNumber = textViewIdNumber;
+    this.textViewIdNumberLabel = textViewIdNumberLabel;
+    this.textViewLastName = textViewLastName;
+    this.textViewLastNameLabel = textViewLastNameLabel;
+    this.textViewPesel = textViewPesel;
+    this.textViewPeselLabel = textViewPeselLabel;
+    this.textViewPhoneNumber = textViewPhoneNumber;
+    this.textViewPhoneNumberLabel = textViewPhoneNumberLabel;
     this.textViewWelcomeMessage = textViewWelcomeMessage;
   }
 
@@ -76,6 +162,120 @@ public final class ActivityHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.buttonShowDecryptedData;
+      Button buttonShowDecryptedData = ViewBindings.findChildViewById(rootView, id);
+      if (buttonShowDecryptedData == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutAddress;
+      RelativeLayout layoutAddress = ViewBindings.findChildViewById(rootView, id);
+      if (layoutAddress == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutFirstName;
+      RelativeLayout layoutFirstName = ViewBindings.findChildViewById(rootView, id);
+      if (layoutFirstName == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutIdNumber;
+      RelativeLayout layoutIdNumber = ViewBindings.findChildViewById(rootView, id);
+      if (layoutIdNumber == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutLastName;
+      RelativeLayout layoutLastName = ViewBindings.findChildViewById(rootView, id);
+      if (layoutLastName == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutPesel;
+      RelativeLayout layoutPesel = ViewBindings.findChildViewById(rootView, id);
+      if (layoutPesel == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutPhoneNumber;
+      RelativeLayout layoutPhoneNumber = ViewBindings.findChildViewById(rootView, id);
+      if (layoutPhoneNumber == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewAddress;
+      TextView textViewAddress = ViewBindings.findChildViewById(rootView, id);
+      if (textViewAddress == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewAddressLabel;
+      TextView textViewAddressLabel = ViewBindings.findChildViewById(rootView, id);
+      if (textViewAddressLabel == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewFirstName;
+      TextView textViewFirstName = ViewBindings.findChildViewById(rootView, id);
+      if (textViewFirstName == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewFirstNameLabel;
+      TextView textViewFirstNameLabel = ViewBindings.findChildViewById(rootView, id);
+      if (textViewFirstNameLabel == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewIdNumber;
+      TextView textViewIdNumber = ViewBindings.findChildViewById(rootView, id);
+      if (textViewIdNumber == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewIdNumberLabel;
+      TextView textViewIdNumberLabel = ViewBindings.findChildViewById(rootView, id);
+      if (textViewIdNumberLabel == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewLastName;
+      TextView textViewLastName = ViewBindings.findChildViewById(rootView, id);
+      if (textViewLastName == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewLastNameLabel;
+      TextView textViewLastNameLabel = ViewBindings.findChildViewById(rootView, id);
+      if (textViewLastNameLabel == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewPesel;
+      TextView textViewPesel = ViewBindings.findChildViewById(rootView, id);
+      if (textViewPesel == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewPeselLabel;
+      TextView textViewPeselLabel = ViewBindings.findChildViewById(rootView, id);
+      if (textViewPeselLabel == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewPhoneNumber;
+      TextView textViewPhoneNumber = ViewBindings.findChildViewById(rootView, id);
+      if (textViewPhoneNumber == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewPhoneNumberLabel;
+      TextView textViewPhoneNumberLabel = ViewBindings.findChildViewById(rootView, id);
+      if (textViewPhoneNumberLabel == null) {
+        break missingId;
+      }
+
       id = R.id.textViewWelcomeMessage;
       TextView textViewWelcomeMessage = ViewBindings.findChildViewById(rootView, id);
       if (textViewWelcomeMessage == null) {
@@ -83,7 +283,11 @@ public final class ActivityHomeBinding implements ViewBinding {
       }
 
       return new ActivityHomeBinding((RelativeLayout) rootView, buttonEditProfile, buttonLogout,
-          textViewWelcomeMessage);
+          buttonShowDecryptedData, layoutAddress, layoutFirstName, layoutIdNumber, layoutLastName,
+          layoutPesel, layoutPhoneNumber, textViewAddress, textViewAddressLabel, textViewFirstName,
+          textViewFirstNameLabel, textViewIdNumber, textViewIdNumberLabel, textViewLastName,
+          textViewLastNameLabel, textViewPesel, textViewPeselLabel, textViewPhoneNumber,
+          textViewPhoneNumberLabel, textViewWelcomeMessage);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

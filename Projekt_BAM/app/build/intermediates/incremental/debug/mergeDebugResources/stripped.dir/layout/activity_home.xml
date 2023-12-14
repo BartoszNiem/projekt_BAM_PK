@@ -8,15 +8,147 @@
         android:id="@+id/textViewWelcomeMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
         android:text="Witaj, użytkowniku!"
         android:textSize="18sp" />
+
+    <!-- Nowe pola jako TextView z niektórymi stylami -->
+    <RelativeLayout
+        android:id="@+id/layoutFirstName"
+        style="@style/ProfileField"
+        android:layout_below="@id/textViewWelcomeMessage"
+        android:layout_marginTop="18dp">
+
+        <TextView
+            android:id="@+id/textViewFirstNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Imię: " />
+
+        <TextView
+            android:id="@+id/textViewFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textViewFirstNameLabel"
+            android:layout_marginLeft="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutLastName"
+        style="@style/ProfileField"
+        android:layout_below="@id/layoutFirstName"
+        android:layout_marginTop="18dp">
+
+        <TextView
+            android:id="@+id/textViewLastNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nazwisko: " />
+
+        <TextView
+            android:id="@+id/textViewLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textViewLastNameLabel"
+            android:layout_marginLeft="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutPesel"
+        style="@style/ProfileField"
+        android:layout_below="@id/layoutLastName"
+        android:layout_marginTop="18dp">
+
+        <TextView
+            android:id="@+id/textViewPeselLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PESEL: " />
+
+        <TextView
+            android:id="@+id/textViewPesel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textViewPeselLabel"
+            android:layout_marginLeft="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutIdNumber"
+        style="@style/ProfileField"
+        android:layout_below="@id/layoutPesel"
+        android:layout_marginTop="18dp">
+
+        <TextView
+            android:id="@+id/textViewIdNumberLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Numer dowodu: " />
+
+        <TextView
+            android:id="@+id/textViewIdNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textViewIdNumberLabel"
+            android:layout_marginLeft="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutPhoneNumber"
+        style="@style/ProfileField"
+        android:layout_below="@id/layoutIdNumber"
+        android:layout_marginTop="18dp">
+
+        <TextView
+            android:id="@+id/textViewPhoneNumberLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Numer telefonu: " />
+
+        <TextView
+            android:id="@+id/textViewPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textViewPhoneNumberLabel"
+            android:layout_marginLeft="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutAddress"
+        style="@style/ProfileField"
+        android:layout_below="@id/layoutPhoneNumber"
+        android:layout_marginTop="18dp">
+
+        <TextView
+            android:id="@+id/textViewAddressLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adres: " />
+
+        <TextView
+            android:id="@+id/textViewAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textViewAddressLabel"
+            android:layout_marginLeft="8dp" />
+    </RelativeLayout>
+
+    <!-- Przycisk "Pokaż odszyfrowane dane" -->
+    <Button
+        android:id="@+id/buttonShowDecryptedData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutAddress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="Pokaż odszyfrowane dane" />
 
     <Button
         android:id="@+id/buttonEditProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewWelcomeMessage"
+        android:layout_below="@id/buttonShowDecryptedData"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
         android:text="Edytuj Profil" />

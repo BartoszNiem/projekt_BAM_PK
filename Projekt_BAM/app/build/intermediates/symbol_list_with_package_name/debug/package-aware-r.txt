@@ -3199,6 +3199,7 @@ id buttonLogout
 id buttonPanel
 id buttonRegister
 id buttonSaveChanges
+id buttonShowDecryptedData
 id cache_measures
 id callMeasure
 id cancel_button
@@ -3339,6 +3340,12 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id layoutAddress
+id layoutFirstName
+id layoutIdNumber
+id layoutLastName
+id layoutPesel
+id layoutPhoneNumber
 id left
 id leftToRight
 id legacy
@@ -3564,6 +3571,18 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textViewAddress
+id textViewAddressLabel
+id textViewFirstName
+id textViewFirstNameLabel
+id textViewIdNumber
+id textViewIdNumberLabel
+id textViewLastName
+id textViewLastNameLabel
+id textViewPesel
+id textViewPeselLabel
+id textViewPhoneNumber
+id textViewPhoneNumberLabel
 id textViewWelcomeMessage
 id text_input_end_icon
 id text_input_error_icon
@@ -4310,6 +4329,7 @@ style Platform_V21_AppCompat_Light
 style Platform_V25_AppCompat
 style Platform_V25_AppCompat_Light
 style Platform_Widget_AppCompat_Spinner
+style ProfileField
 style RtlOverlay_DialogWindowTitle_AppCompat
 style RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
 style RtlOverlay_Widget_AppCompat_DialogTitle_Icon
